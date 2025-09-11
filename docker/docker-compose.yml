@@ -36,7 +36,6 @@ services:
     build:
       context: ../packages/
       dockerfile: bytebot-agent/Dockerfile
-    image: ghcr.io/bytebot-ai/bytebot-agent:edge
     container_name: bytebot-agent
     restart: unless-stopped
     ports:

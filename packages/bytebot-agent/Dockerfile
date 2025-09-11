@@ -52,8 +52,9 @@ RUN npm ci --omit=dev
 
 # Copy the compiled application code from the builder stage
 COPY --from=builder /app/bytebot-agent/dist ./dist
-# Copy prisma schema
+# Copy prisma schema and generated client
 COPY --from=builder /app/bytebot-agent/prisma ./prisma
+COPY --from=builder /app/bytebot-agent/node_modules/.prisma/client ./node_modules/.prisma/client
 
 # Change ownership of the files to the non-root user
 USER appuser
