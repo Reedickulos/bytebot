@@ -1,5 +1,4 @@
 name: bytebot
-
 services:
   bytebot-desktop:
     # Build from source

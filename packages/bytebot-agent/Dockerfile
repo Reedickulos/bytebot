@@ -8,6 +8,11 @@ WORKDIR /app
 COPY ./shared ./shared
 COPY ./bytebot-agent/ ./bytebot-agent/
 
+WORKDIR /app/shared
+
+# Install shared dependencies
+RUN npm install
+
 WORKDIR /app/bytebot-agent
 
 # Install dependencies
@@ -17,6 +22,4 @@ RUN npm install
 RUN npm run build
 
 # Run the application
-CMD ["npm", "run", "start:prod"] 
-
-
+CMD ["npm", "run", "start:prod"]
