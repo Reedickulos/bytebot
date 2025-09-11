@@ -23,8 +23,11 @@ WORKDIR /app
 COPY ./shared ./shared
 COPY ./bytebot-agent/ ./bytebot-agent/
 
-# Build the TypeScript project
+# Generate Prisma client
 WORKDIR /app/bytebot-agent
+RUN npx prisma generate
+
+# Build the TypeScript project
 RUN npm run build
 
 # ---- Runtime Stage ----
