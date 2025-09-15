@@ -11,7 +11,9 @@ services:
     hostname: computer
     privileged: true
     ports:
-      - "9990:9990"
+    - "9990:9990" # bytebotd service
+      - "6080:6080" # noVNC web interface
+      - "5900:5900" # VNC direct connection
     environment:
       - DISPLAY=:0
     networks:
