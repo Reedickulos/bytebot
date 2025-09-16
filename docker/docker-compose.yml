@@ -11,7 +11,7 @@ services:
     hostname: computer
     privileged: true
     ports:
-    - "9990:9990" # bytebotd service
+      - "9990:9990" # bytebotd service
       - "6080:6080" # noVNC web interface
       - "5900:5900" # VNC direct connection
     environment:
@@ -35,6 +35,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
 
   bytebot-agent:
+    image: ghcr.io/bytebot-ai/bytebot-agent:edge
     build:
       context: ../packages/
       dockerfile: bytebot-agent/Dockerfile
